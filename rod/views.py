@@ -1,3 +1,27 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Artwork
+from rest_framework import generics, permissions
+from .serializers import ArtworkSerializer
+
+class Artworks(generics.ListCreateAPIView):
+    queryset = Artwork.objects.all()
+    serializer_class = ArtworkSerializer
+
+class ArtworksProtected(generics.ListAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer    
+
+    permission_classes = [permissions.IsAuthenticated]
+
+class ArtworkCreateProtected(generics.CreateAPIView):
+    queryset = Artwork.objects.all()
+    serializer_class = ArtworkSerializer  
+    
+    permission_classes = [permissions.IsAuthenticated]
+
+class ArtworkDetailProtected(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ArtworkSerializer
+    queryset = Artwork.objects.all()
+
+    permission_classes = [permissions.IsAuthenticated]
