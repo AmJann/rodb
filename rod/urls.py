@@ -9,4 +9,6 @@ urlpatterns = [
     path('artwork_edit/<uuid:pk>/', views.ArtworkDetailProtected.as_view(), name='artwork_edit'),
     path('artwork_delete/<uuid:pk>/', views.ArtworkDetailProtected.as_view(), name='artwork_delete'),
     path('', views.Artwork_list, name='artworks'),
+    path('add_artwork', views.add_artwork,name='add-artwork'),
+    
 ]
