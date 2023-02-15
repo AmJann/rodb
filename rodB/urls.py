@@ -1,14 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from django.conf import settings 
+from django.conf.urls import include
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('artworks/', views.Artworks.as_view(), name ='artworks'),
-    path('artworks_protected/', views.ArtworksProtected.as_view(), name ='artworks'),
-    path('artwork_create/', views.ArtworkCreateProtected.as_view(), name='artwork_create'),
-    path('artwork_detail/<uuid:pk>/', views.ArtworkDetailProtected.as_view(), name='artwork_detail'),
-    path('artwork_edit/<uuid:pk>/', views.ArtworkDetailProtected.as_view(), name='artwork_edit'),
-    path('artwork_delete/<uuid:pk>/', views.ArtworkDetailProtected.as_view(), name='artwork_delete'),
-
-]
+    path('', include('rod.urls')),
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

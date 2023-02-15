@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+<h1>Rodney Becklund</h1>
+<h6>art</h6>
+
+{% for artworks in artworks %}
+<ul>
+<li>{{ artworks.name }}</li>
+<li><img src = "{{artworks.image.url}}"></li>
+</ul>
+{% endfor %}
+{% endblock %}
