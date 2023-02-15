@@ -1,7 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
-<center>
+
     <h1>Add Art</h1>
-</center>
-{% endfor %}
+    <br/><br/>
+    {% if submitted %}
+    <h2>Your Artwork listing was submitted Successfully!!!</h2>
+    {% else %}
+
+    
+    <form action ='' method = 'POST'>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type = "submit" value ="Submit">
+    </form>  
+{% endif %}
+
+
 {% endblock %}
