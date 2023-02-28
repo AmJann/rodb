@@ -37,7 +37,7 @@ def Artwork_list(request):
 def add_artwork(request):
     submitted = False
     if request.method == "POST":
-        form = ArtworkForm(request.POST)
+        form = ArtworkForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('?submitted=True')

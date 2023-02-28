@@ -11,7 +11,7 @@ class ArtworkForm(ModelForm):
         widgets = {
             'name':forms.TextInput(attrs={'class': 'form-control'}),
             'size':forms.TextInput(attrs={'class': 'form-control'}),
-            'description':forms.TextInput(attrs={'class': 'form-control'}),
+            'description':forms.TextInput(attrs={'class': 'form-control','id':'formControlTextarea1'}),
             'price':forms.TextInput(attrs={'class': 'form-control'}),
             'type':forms.TextInput(attrs={'class': 'form-control'}),
             'subtype':forms.TextInput(attrs={'class': 'form-control'}),

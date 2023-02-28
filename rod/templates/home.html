@@ -2,13 +2,54 @@
 
 {% block content %}
 {% load static %}
-<h1>Rodney Becklund</h1>
-<h6>art</h6>
 
-{% for artworks in artworks %}
-<ul>
-<li>{{ artworks.name }}</li>
-<li><img src = "{{artworks.image.url}}" ></li>
-</ul>
+<center>
+    <div id = 'homeTitleContainer'>
+        <h2 id = 'homeTitle'><span class="largeText">R</span>ODNEY <span class="largeText">B</span>ECKLUND<br/><span id= "homeSubtitle">Waterbird Sculptures</span></h2>
+
+        <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsoMgpXd4sKahmJIil4hBA8FpR0xG46xZvkDFa78jZmwnUi2asbihr5GefYTM4yMiN4N0&usqp=CAU' alt="'blue brush stroke">
+
+    </div>
+
+    <div>
+        <div>
+            <img class="mainPhoto" src="{% static 'images/cindy_and_Rod.png' %}" alt = "Rod and Cindy standing next to waterbird sculptures">
+        </div>
+    </div>
+
+    <div class = 'carouselContainer'>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.rodbecklund.com/resources/DSC02767.JPG.opt399x709o0%2C0s399x709.JPG" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.rodbecklund.com/resources/DSC02773.JPG.opt660x371o0%2C0s660x371.JPG" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.rodbecklund.com/resources/DSC02770.JPG.opt660x371o0%2C0s660x371.JPG" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    {% for artworks in artworks %}
+    <ul>
+            <li>{{ artworks.name }}</li>
+
+        {% if artworks.image %}
+            <li><img src = "{{artworks.image.url}}" ></li>
+        {% endif%}
+
+    </ul>
+</center>
 {% endfor %}
 {% endblock %}
